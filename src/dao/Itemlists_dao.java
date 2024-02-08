@@ -105,10 +105,10 @@ public class Itemlists_dao {
 
 	public boolean update(updateRequest list){
 		int ret = -1;
-
+		System.out.println("通った");
 		DBManager manager = DBManager.getInstance();
 		try(Connection cn = manager.getConnection()){
-			String sql = "UPDATE items SET product_name = ?, price = ?, description = ?, image = ?, material = ?, sizename = ?, updated_at = sysdate where id = ?";
+			String sql = "UPDATE items SET product_name = ?, price = ?, description = ?, image = ?, material = ?, sizename = ?, updated_at = sysdate where id = ?, category = ?";
 			PreparedStatement stmt = cn.prepareStatement(sql);
 			stmt.setString(1, list.getProduct_name());
 			stmt.setInt(2, list.getPrice());
@@ -117,6 +117,7 @@ public class Itemlists_dao {
 			stmt.setString(5, list.getMaterial());
 			stmt.setString(6, list.getSizename());
 			stmt.setInt(7, list.getId());
+			stmt.setString(8, list.getCategory());
 
 			ret = stmt.executeUpdate();
 			} catch(SQLException e){
@@ -127,6 +128,7 @@ public class Itemlists_dao {
 	}
 	
 	public boolean stockupdate(stockRequest req){
+		System.out.println("通った");
 		int ret = -1;
 		DBManager manager = DBManager.getInstance();
 		try(Connection cn = manager.getConnection()){
@@ -176,10 +178,11 @@ public class Itemlists_dao {
 		String image = rs.getString("image");
 		String material = rs.getString("material");
 		String sizename = rs.getString("sizename");
+		String category = rs.getString("category");
 		
 		
 
-		return new Item(id, product_name, price, description, stock, created_at, updated_at, image, material, sizename);
+		return new Item(id, product_name, price, description, stock, created_at, updated_at, image, material, sizename, category);
 	}
 
 

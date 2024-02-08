@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dao.Itemlists_dao;
-import model.Item;
 import model.stockRequest;
 
 /**
@@ -33,22 +31,6 @@ public class stoc extends HttpServlet {
 //		if (/*えらー*/) {
 //			
 //		}
-		Itemlists_dao dao = new Itemlists_dao();
-		int id = 0;
-		Item item = dao.find(id);
-		ObjectMapper mapper = new ObjectMapper();
-		
-//		}
-		try {
-			String listJson = mapper.writeValueAsString(id);
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("application/json; charaset=UTF-8");
-			response.getWriter().write(listJson);
-			System.out.println(listJson);
-		}catch(JsonProcessingException e) {
-			e.printStackTrace();
-		}
-		
 	}
 
 	/**

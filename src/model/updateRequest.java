@@ -10,6 +10,7 @@ public class updateRequest implements Serializable {
     private String image;
     private String material;
     private String sizename;  
+    private String category;
     
     
     public int getId(){
@@ -54,10 +55,17 @@ public class updateRequest implements Serializable {
     public void sizename(String sizename){
         this.sizename = sizename;
     }
-    public updateRequest(){
-        this(0, "", 0, "", "", "", "");
+    public String getCategory() {
+    	return category;
     }
-    public updateRequest(int id, String product_name, int price, String description, String image, String material, String sizename){
+    public void setCategory(String category) {
+    	this.category = category;
+    }
+    
+    public updateRequest(){
+        this(0, "", 0, "", "", "", "", "");
+    }
+    public updateRequest(int id, String product_name, int price, String description, String image, String material, String sizename, String category){
         super();
         this.id = id;
         this.product_name = product_name;
@@ -66,5 +74,6 @@ public class updateRequest implements Serializable {
         this.image = image;
         this.material = material;
         this.sizename = sizename;
+        this.category = category;
     }
 }

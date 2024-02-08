@@ -13,9 +13,10 @@ private int id;
  private String image;
  private String material;
  private String sizename;
+ private String category;
 	
  public Item(int id, String product_name, int price, String description, int stock, Date created_at, Date updated_at,
-		 String image, String material, String sizename) {
+		 String image, String material, String sizename, String category) {
 	 super();
 	 this.id = id;
 	 this.product_name = product_name;
@@ -27,6 +28,7 @@ private int id;
 	 this.image = image;
 	 this.material = material;
 	 this.sizename = sizename;
+	 this.category = category;
  }
 public Item () {
 }
@@ -77,6 +79,9 @@ public String getSizename() {
 	return sizename;
 }
 
+public String getCategory() {
+	return category;
+}
 
 
 

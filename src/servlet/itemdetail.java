@@ -40,8 +40,8 @@ public class itemdetail extends HttpServlet {
 		String temp;
 		while ((temp = br.readLine()) != null) {
 			jsonText += temp;
-//		System.out.println(jsonText);
-//		System.out.println(jsonText);
+		System.out.println(jsonText);
+		System.out.println(jsonText);
 		};
       	jsonText = URLDecoder.decode( jsonText, "UTF-8" );
 //		System.out.println(jsonText);
@@ -51,7 +51,7 @@ public class itemdetail extends HttpServlet {
       	updateRequest req = mapper.readValue(jsonText, updateRequest.class);
 //      	System.out.println(jsonText);
       	Itemlists_dao dao = new Itemlists_dao();
-//      	System.out.println(jsonText);
+      	System.out.println(jsonText);
       	// DAOを使って登録
 		dao.update(req);
 		
