@@ -23,7 +23,7 @@ public class Purchasehistorys_dao {
 		
 		DBManager manager = DBManager.getInstance();
 		try(Connection cn = manager.getConnection()) {
-			String sql = "select purchasehistory.id, items.product_name, purchasehistory.item_number, purchasehistory.created_at, purchasehistory.updated_at, purchasehistory.user_id, purchasehistory.state from purchasehistory inner join items on purchasehistory.product_id = items.id";
+			String sql = "select purchasehistory.id, items.product_name, purchasehistory.item_number, purchasehistory.created_at, purchasehistory.updated_at, purchasehistory.user_id, purchasehistory.state from purchasehistory inner join items on purchasehistory.product_id = items.id ORDER BY purchasehistory.id ASC";
 			PreparedStatement stmt = cn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			
