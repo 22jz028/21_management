@@ -108,7 +108,7 @@ public class Itemlists_dao {
 		System.out.println("通った");
 		DBManager manager = DBManager.getInstance();
 		try(Connection cn = manager.getConnection()){
-			String sql = "UPDATE items SET product_name = ?, price = ?, description = ?, image = ?, material = ?, sizename = ?, updated_at = sysdate where id = ?, category = ?";
+			String sql = "UPDATE items SET product_name = ?, price = ?, description = ?, image = ?, material = ?, sizename = ?, updated_at = sysdate, category = ? where id = ?";
 			PreparedStatement stmt = cn.prepareStatement(sql);
 			stmt.setString(1, list.getProduct_name());
 			stmt.setInt(2, list.getPrice());
@@ -116,8 +116,9 @@ public class Itemlists_dao {
 			stmt.setString(4, list.getImage());
 			stmt.setString(5, list.getMaterial());
 			stmt.setString(6, list.getSizename());
-			stmt.setInt(7, list.getId());
-			stmt.setString(8, list.getCategory());
+			stmt.setString(7, list.getCategory());
+			stmt.setInt(8, list.getId());
+			
 
 			ret = stmt.executeUpdate();
 			} catch(SQLException e){
